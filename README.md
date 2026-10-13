@@ -1,13 +1,10 @@
 # csv-profiler
 
-A small command-line tool that gives you a quick first look at a CSV file before any analysis or modelling. For each column it reports the type, missing values, unique count, and, for numeric columns, basic statistics and outliers.
+A small command-line tool for a first look at a CSV file.
 
-## What it reports
+For each column it shows the type, how many values are missing, and how many distinct values there are. For numeric columns it also shows the mean, standard deviation, min, max, and how many outliers there are. Outliers here means values far outside the middle of the data, using the usual IQR rule.
 
-- Row, column, and duplicate-row counts
-- Per column: dtype, missing count and percentage, unique values
-- Numeric columns: mean, standard deviation, min, max
-- Numeric columns: number of outliers using the IQR rule (values beyond 1.5 × IQR from the quartiles)
+It's handy before you start cleaning or modelling, since missing values and wrong column types show up right away.
 
 ## Install
 
@@ -28,13 +25,13 @@ python profiler.py data.tsv --sep '\t'
 pytest -q
 ```
 
-## Project layout
+## Files
 
-| File | Purpose |
+| File | What it does |
 | --- | --- |
-| `profiler.py` | Profiling logic and CLI entry point |
-| `test_profiler.py` | pytest suite |
-| `requirements.txt` | Runtime and test dependencies |
+| `profiler.py` | Profiling logic and the command-line entry point |
+| `test_profiler.py` | Tests |
+| `requirements.txt` | Dependencies |
 
 ## License
 
